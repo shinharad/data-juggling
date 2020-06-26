@@ -60,21 +60,17 @@ object MonocleLenses3 extends App {
   println(cityZipCode.modify(styled)(nested))
   println(cityZipCode.get(nested))
 
+  println(nested.lens(_.address.city.zipCode).modify(styled))
+
   println("─" * 75)
 
   ValidationExample
-    .person(
-      nested
-    ) // Validated.Valid[Person]: ValidatedNec[String, Person]: Validated[NonEmptyChain[String], Person]
+    .person(nested)
     .map { person =>
-      val lens = Lens[Person, Person.Age](_.age) { target => source =>
-        source.copy(age = target)
-      }
-
       def transform(age: Person.Age): Person.Age =
         Person.Age(age.value + 10)
 
-      lens.modify(transform)(person)
+      person.lens(_.age).modify(transform)
     }
     .foreach(println)
 
