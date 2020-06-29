@@ -1,4 +1,4 @@
-package com.example.monocle.part2.step1
+package com.example.monocle.part2
 
 import io.scalaland.chimney.dsl._
 

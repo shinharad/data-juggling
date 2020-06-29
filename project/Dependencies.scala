@@ -60,6 +60,9 @@ object Dependencies {
 
       val `kind-projector` =
         "org.typelevel" %% "kind-projector" % "0.11.0" cross CrossVersion.full
+
+      val kittens =
+        "org.typelevel" %% "kittens" % "2.0.0"
     }
 
   }

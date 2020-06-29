@@ -13,6 +13,8 @@ import monocle._
 import monocle.macros._
 import monocle.macros.syntax.lens._
 
+import com.example.monocle.part2._
+
 object ValidationWithIso extends App {
   println("─" * 75)
 

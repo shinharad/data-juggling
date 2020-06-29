@@ -60,6 +60,8 @@ lazy val monocle =
       libraryDependencies ++= Seq(
         org.typelevel.`cats-core`,
         `io.scalaland`.chimney,
-        com.github.`julien-truffaut`.`monocle-macro`
+        org.typelevel.kittens,
+        com.github.`julien-truffaut`.`monocle-macro`,
+        com.github.`julien-truffaut`.`monocle-law`,
       )
     )

@@ -9,6 +9,8 @@ import cats.implicits._
 import io.scalaland.chimney._
 import io.scalaland.chimney.dsl._
 
+import com.example.monocle.part2._
+
 object ValidationExample {
 
   def person(nested: Person.Raw.Nested): ValidatedNec[String, Person] =
