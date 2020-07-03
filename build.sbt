@@ -62,6 +62,8 @@ lazy val monocle =
         `io.scalaland`.chimney,
         org.typelevel.kittens,
         com.github.`julien-truffaut`.`monocle-macro`,
+        com.github.`julien-truffaut`.`monocle-unsafe`,
         com.github.`julien-truffaut`.`monocle-law`,
+        com.softwaremill.quicklens
       )
     )

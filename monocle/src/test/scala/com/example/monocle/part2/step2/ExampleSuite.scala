@@ -11,7 +11,9 @@ import org.scalacheck.ScalacheckShapeless
 
 import org.scalatestplus.scalacheck._
 
-import com.example.monocle.part2.step1._
+import com.example.monocle._
+
+import com.example.monocle.part2._
 
 final class ExampleSuite extends TestSuite with Checkers {
   test("iso") {

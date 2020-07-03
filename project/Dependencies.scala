@@ -28,6 +28,10 @@ object Dependencies {
         val `monocle-unsafe` = Dependency("monocle-unsafe")
       }
     }
+
+    case object softwaremill {
+      val quicklens = "com.softwaremill.quicklens" %% "quicklens" % "1.4.12"
+    }
   }
 
   case object org {

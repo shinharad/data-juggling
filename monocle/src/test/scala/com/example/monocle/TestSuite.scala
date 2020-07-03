@@ -1,4 +1,4 @@
-package com.example.monocle.part2.step2
+package com.example.monocle
 
 import org.scalacheck.ScalacheckShapeless
 
@@ -20,4 +20,7 @@ trait TestSuite
        with FunSuiteDiscipline {
   final protected type Assertion =
     org.scalatest.compatible.Assertion
+
+  def assert[I, E](input: I, expected: E)(act: I => E): Assertion =
+    act(input) shouldBe expected
 }
