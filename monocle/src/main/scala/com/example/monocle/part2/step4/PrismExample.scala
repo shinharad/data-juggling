@@ -31,9 +31,9 @@ object PrismExample1 extends App {
     GenPrism[TrafficLight, TrafficLight.Green]
 
   Seq(prism1, prism2, prism3).foreach { prism =>
-    println(prism.getOption(TrafficLight.Red(0.8)))
-    println(prism.getOption(TrafficLight.Yellow(0.8)))
-    println(prism.getOption(TrafficLight.Green(0.8)))
+    println(prism.getOption(TrafficLight.Red(0.8)))    // => None
+    println(prism.getOption(TrafficLight.Yellow(0.8))) // => None
+    println(prism.getOption(TrafficLight.Green(0.8)))  // => Some(Green(0.8))
   }
 
   println("─" * 75)
@@ -47,13 +47,13 @@ object PrismExample2 extends App {
       case TrafficLight.Green(opacity) => opacity
     }(TrafficLight.Green)
 
-  println(typicalPrism.getOption(TrafficLight.Red(0.8)))
-  println(typicalPrism.getOption(TrafficLight.Yellow(0.8)))
-  println(typicalPrism.getOption(TrafficLight.Green(0.8)))
+  println(typicalPrism.getOption(TrafficLight.Red(0.8)))    // => None
+  println(typicalPrism.getOption(TrafficLight.Yellow(0.8))) // => None
+  println(typicalPrism.getOption(TrafficLight.Green(0.8)))  // => Some(0.8)
 
-  println(typicalPrism.modify(_ + 1)(TrafficLight.Red(0.8)))
-  println(typicalPrism.modify(_ + 1)(TrafficLight.Yellow(0.8)))
-  println(typicalPrism.modify(_ + 1)(TrafficLight.Green(0.8)))
+  println(typicalPrism.modify(_ + 1)(TrafficLight.Red(0.8)))    // => Red(0.8)
+  println(typicalPrism.modify(_ + 1)(TrafficLight.Yellow(0.8))) // => Yellow(0.8)
+  println(typicalPrism.modify(_ + 1)(TrafficLight.Green(0.8)))  // => Green(1.8)
 
   println("─" * 75)
 }
@@ -77,15 +77,14 @@ object PrismExample3 extends App {
         )(_.toDouble)
       )
 
-  println(prism.modify(_ + 1)(TrafficLight.Red(0.8)))
-  println(prism.modify(_ + 1)(TrafficLight.Yellow(0.8)))
-  println(prism.modify(_ + 1)(TrafficLight.Green(0.8)))
-
-  println(prism.modify(_ + 1)(TrafficLight.Green(1))) // 合致するものだけmodifyが適用される
+  println(prism.modify(_ + 1)(TrafficLight.Red(0.8)))     // => Red(0.8)
+  println(prism.modify(_ + 1)(TrafficLight.Yellow(0.8)))  // => Yellow(0.8)
+  println(prism.modify(_ + 1)(TrafficLight.Green(0.8)))   // => Green(0.8)
+  println(prism.modify(_ + 1)(TrafficLight.Green(1)))     // => Green(2.0)
 
   // マッチする場合は正常終了するが、しない場合はruntime error
   TrafficLight.Green(2) match {
-    case prism(value) => println(value)
+    case prism(value) => println(value) // => 2
   }
 
   // runtime error
