@@ -1,6 +1,6 @@
 package com.example.isomorphism
 
-object SumTypes1 extends App {
+object SumTypeAndProducts1 extends App {
   println("-" * 100)
 
   // val x: Nothing = ???
@@ -36,7 +36,7 @@ object SumTypes1 extends App {
 
 }
 
-object SumTypes2 extends App {
+object SumTypeAndProducts2 extends App {
   println("-" * 100)
 
   // val x: Nothing = ???
@@ -60,46 +60,33 @@ object SumTypes2 extends App {
   val c: `4` = (Right(()), Left(()))
   val d: `4` = (Right(()), Right(()))
 
-  // val x: `3` = "watever"
+  type `4b` = Boolean * Boolean // (Boolean, Boolean)
+  val a1: `4b` = (false, false)
+  val b1: `4b` = (false, true)
+  val c1: `4b` = (true, false)
+  val d1: `4b` = (true, true)
 
-  object Custom {
-    sealed abstract class Boolean extends Product with Serializable
-    object Boolean {
-      case object False extends Boolean
-      case object True extends Boolean
-    }
+  final case class Person(isAdult: Boolean, isTall: Boolean)
+  val p1: Person = Person(false, false)
+  val p2: Person = Person(false, true)
+  val p3: Person = Person(true, false)
+  val p4: Person = Person(true, true)
 
-    type Option[+A] = Either[Unit, A] // () | ... A.size
-    def Some[A](a: A): Option[A] = Right(a)
-    val None: Option[Nothing] = Left(())
+  // object Custom {
+  //   sealed abstract class Boolean extends Product with Serializable
+  //   object Boolean {
+  //     case object False extends Boolean
+  //     case object True extends Boolean
+  //   }
 
-    type Maybe[+A] = scala.Boolean
-    def Just[A](a: A): Maybe[A] = true
-    val Nothing: Maybe[Nothing] = false
-  }
+  //   type Option[+A] = Either[Unit, A] // () | ... A.size
+  //   def Some[A](a: A): Option[A] = Right(a)
+  //   val None: Option[Nothing] = Left(())
 
-  // val x: `2` = "whatever"
-
-  // type A = `1` // Unit
-  // type B = `0` + `1` // Either[Nothing, Unit]
-
-  // def aToB(a: A): B = Right(a) // Right(())
-  // def bToA(b: B): A = (b: @unchecked) match {
-  //   case Right(value) => value
+  //   type Maybe[+A] = scala.Boolean
+  //   def Just[A](a: A): Maybe[A] = true
+  //   val Nothing: Maybe[Nothing] = false
   // }
-
-  // println(aToB(a = ()))
-  // println(bToA(b = Left(???)))
-
-  // 0 + 0
-  // 0 + 1 // 1 + 0
-  // 1 + 1 // 2
-
-  // type StillNothing = Either[Nothing, Nothing] // Left(???) Right(???)
-  // type StillNothing = Either[`0`, `0`]
-  // type StillNothing = `0` Either `0`
-
-  type StillZero = `0` + `0`
 
   println("-" * 100)
 
