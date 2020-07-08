@@ -67,3 +67,20 @@ lazy val monocle =
         com.softwaremill.quicklens
       )
     )
+
+lazy val `isomorphism` =
+  project
+    .in(file("isomorphism"))
+    .settings(name := "isomorphism")
+    .settings(commonSettings: _*)
+    .settings(
+      libraryDependencies ++= Seq(
+        // org.typelevel.`cats-core`,
+        // `io.scalaland`.chimney,
+        // org.typelevel.kittens,
+        // com.github.`julien-truffaut`.`monocle-macro`,
+        // com.github.`julien-truffaut`.`monocle-unsafe`,
+        // com.github.`julien-truffaut`.`monocle-law`,
+        // com.softwaremill.quicklens
+      )
+    )
