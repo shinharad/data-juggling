@@ -51,8 +51,9 @@ object SumTypeAndProducts2 extends App {
 
   type `2` = `1` + `1` // Either[Unit, Unit] // Left(()) | Right(())
   type `2a` = Boolean // false | true
-  type `3a` = `1` + (`1` + `1`) // Left(()) | Right(Left()) | Right(Right(()))
-  type `3b` = `1` +: `1` +: `1` // Left(()) | Right(Left()) | Right(Right(()))
+  type `3a` = `1` + `1` + `1` // Left(Left(())) | Left(Right(())) | Right(())
+  type `3b` = `1` + (`1` + `1`) // Left(()) | Right(Left()) | Right(Right(()))
+  type `3c` = `1` +: `1` +: `1` // Left(()) | Right(Left()) | Right(Right(()))
 
   type `4` = `2` * `2` // (Either[Unit, Unit], Either[Unit, Unit])
   val a: `4` = (Left(()), Left(()))
