@@ -1,6 +1,6 @@
 package com.example.isomorphism
 
-object TypesAsSetsOfValues extends App {
+object `01_TypesAsSetsOfValues` extends App {
   println("-" * 100)
 
   // val x: Nothing = ???

@@ -1,6 +1,6 @@
 package com.example.isomorphism
 
-object SumTypeAndProducts1 extends App {
+object `02_SumTypeAndProducts1` extends App {
   println("-" * 100)
 
   // val x: Nothing = ???
@@ -36,7 +36,7 @@ object SumTypeAndProducts1 extends App {
 
 }
 
-object SumTypeAndProducts2 extends App {
+object `02_SumTypeAndProducts2` extends App {
   println("-" * 100)
 
   // val x: Nothing = ???
