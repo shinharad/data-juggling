@@ -18,7 +18,9 @@ lazy val root =
   project.in(file("."))
     .aggregate(
       chimney,
-      monocle
+      monocle,
+      isomorphism,
+      cats
     )
 
 lazy val commonSettings = Seq(
@@ -68,19 +70,19 @@ lazy val monocle =
       )
     )
 
-lazy val `isomorphism` =
+lazy val isomorphism =
   project
     .in(file("isomorphism"))
     .settings(name := "isomorphism")
     .settings(commonSettings: _*)
+
+lazy val cats =
+  project
+    .in(file("cats"))
+    .settings(name := "cats")
+    .settings(commonSettings: _*)
     .settings(
       libraryDependencies ++= Seq(
-        // org.typelevel.`cats-core`,
-        // `io.scalaland`.chimney,
-        // org.typelevel.kittens,
-        // com.github.`julien-truffaut`.`monocle-macro`,
-        // com.github.`julien-truffaut`.`monocle-unsafe`,
-        // com.github.`julien-truffaut`.`monocle-law`,
-        // com.softwaremill.quicklens
+        org.typelevel.`cats-core`
       )
     )

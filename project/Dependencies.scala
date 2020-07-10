@@ -57,7 +57,7 @@ object Dependencies {
 
     case object typelevel {
       val `cats-core` =
-        "org.typelevel" %% "cats-core" % "2.0.0"
+        "org.typelevel" %% "cats-core" % "2.1.0"
 
       val `discipline-scalatest` =
         "org.typelevel" %% "discipline-scalatest" % "1.0.1"
