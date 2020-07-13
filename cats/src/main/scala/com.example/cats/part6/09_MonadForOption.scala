@@ -1,5 +1,6 @@
-package com.example.cats
-package fplibrary
+package com.example.cats.part6
+
+import com.example.cats._
 
 object `09_MonadForOption` extends Monad[Option] {
   def pure[A](a: A): Option[A] =
