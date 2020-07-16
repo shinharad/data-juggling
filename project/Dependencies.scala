@@ -74,4 +74,13 @@ object Dependencies {
 
   }
 
+  case object eu {
+
+    case object timepit {
+      val refined =
+        "eu.timepit" %% "refined" % "0.9.10"
+    }
+
+  }
+
 }
