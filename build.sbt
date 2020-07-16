@@ -83,6 +83,7 @@ lazy val cats =
     .settings(commonSettings: _*)
     .settings(
       libraryDependencies ++= Seq(
-        org.typelevel.`cats-core`
+        org.typelevel.`cats-core`,
+        org.typelevel.`cats-effect`
       )
     )

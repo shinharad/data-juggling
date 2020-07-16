@@ -59,6 +59,9 @@ object Dependencies {
       val `cats-core` =
         "org.typelevel" %% "cats-core" % "2.1.0"
 
+      val `cats-effect` =
+        "org.typelevel" %% "cats-effect" % "2.0.0"
+
       val `discipline-scalatest` =
         "org.typelevel" %% "discipline-scalatest" % "1.0.1"
 
