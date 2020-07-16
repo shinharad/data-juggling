@@ -20,7 +20,8 @@ lazy val root =
       chimney,
       monocle,
       isomorphism,
-      cats
+      cats,
+      refined
     )
 
 lazy val commonSettings = Seq(
@@ -85,5 +86,17 @@ lazy val cats =
       libraryDependencies ++= Seq(
         org.typelevel.`cats-core`,
         org.typelevel.`cats-effect`
+      )
+    )
+
+lazy val refined =
+  project
+    .in(file("refined"))
+    .settings(name := "refined")
+    .settings(commonSettings: _*)
+    .settings(
+      libraryDependencies ++= Seq(
+        // org.typelevel.`cats-core`,
+        // org.typelevel.`cats-effect`
       )
     )
