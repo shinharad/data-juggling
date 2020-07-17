@@ -15,7 +15,7 @@ object Dependencies {
       }
       case object `julien-truffaut` {
         def Dependency(artifact: String): ModuleID =
-          "com.github.julien-truffaut" %% artifact % "2.0.0"
+          "com.github.julien-truffaut" %% artifact % "2.0.1"
 
         val `monocle-core` = Dependency("monocle-core")
         val `monocle-macro` = Dependency("monocle-macro")
