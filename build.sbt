@@ -96,6 +96,7 @@ lazy val refined =
     .settings(commonSettings: _*)
     .settings(
       libraryDependencies ++= Seq(
+        eu.timepit.`refined-cats`,
         eu.timepit.refined,
         org.typelevel.`cats-core`
       )
