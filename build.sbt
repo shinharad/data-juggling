@@ -21,7 +21,8 @@ lazy val root =
       monocle,
       isomorphism,
       cats,
-      refined
+      refined,
+      config
     )
 
 lazy val commonSettings = Seq(
@@ -99,5 +100,15 @@ lazy val refined =
         eu.timepit.`refined-cats`,
         eu.timepit.refined,
         org.typelevel.`cats-core`
+      )
+    )
+
+lazy val config =
+  project
+    .in(file("config"))
+    .settings(name := "config")
+    .settings(commonSettings: _*)
+    .settings(
+      libraryDependencies ++= Seq(
       )
     )
