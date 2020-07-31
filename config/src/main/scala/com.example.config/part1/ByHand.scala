@@ -1,7 +1,6 @@
-package com.example.config
+package com.example.config.part1
 
-// cd config
-// sbt "runMain com.example.config.FromDirenv" 
+// sbt "config/runMain com.example.config.part1.FromDirenv" 
 object FromDirenv extends App {
   println("-" * 50)
 
@@ -10,9 +9,9 @@ object FromDirenv extends App {
   println("-" * 50)
 }
 
-// bloop run config -m com.example.config.FromJvmArgs -- -J-Dkey1="value 1 from system.properties"
+// bloop run config -m com.example.config.part1.FromJvmArgs -- -J-Dkey1="value 1 from system.properties"
 // or
-// sbt "config/runMain com.example.config.FromJvmArgs" -J-Dkey1="value 1 from system.properties"
+// sbt "config/runMain com.example.config.part1.FromJvmArgs" -J-Dkey1="value 1 from system.properties"
 object FromJvmArgs extends App {
   println("-" * 50)
 
@@ -21,8 +20,7 @@ object FromJvmArgs extends App {
   println("-" * 50)
 }
 
-// cd config
-// sbt "config/runMain com.example.config.WithProperties" -J-Dkey1="value 1 from system.properties"
+// sbt "config/runMain com.example.config.part1.WithProperties" -J-Dkey1="value 1 from system.properties"
 object WithProperties extends App {
   println("-" * 50)
 
@@ -38,10 +36,10 @@ object WithProperties extends App {
   println("-" * 50)
 }
 
-// bloop run config -m com.example.config.FromProperties -- -J-Dkey1="value 1 from system.properties"
+// bloop run config -m com.example.config.part1.FromProperties -- -J-Dkey1="value 1 from system.properties"
 // 
 // これはException
-// sbt "config/runMain com.example.config.FromProperties" -J-Dkey1="value 1 from system.properties"
+// sbt "config/runMain com.example.config.part1.FromProperties" -J-Dkey1="value 1 from system.properties"
 object FromProperties extends App {
   println("-" * 50)
 
@@ -65,7 +63,7 @@ object FromProperties extends App {
   println("-" * 50)
 }
 
-// sbt "config/runMain com.example.config.FromProperties2" -J-Dkey1="value 1 from system.properties"
+// sbt "config/runMain com.example.config.part1.FromProperties2" -J-Dkey1="value 1 from system.properties"
 object FromProperties2 extends App {
   println("-" * 50)
 
@@ -94,10 +92,10 @@ object FromProperties2 extends App {
 // -Dkey1=jvmopts
 // ```
 //
-// sbt "config/runMain com.example.config.FromJvmopts" 
+// sbt "config/runMain com.example.config.part1.FromJvmopts" 
 //
 // bloopはnullになる
-// bloop run config -m com.example.config.FromJvmopts
+// bloop run config -m com.example.config.part1.FromJvmopts
 object FromJvmopts extends App {
   println("-" * 50)
 
@@ -117,10 +115,10 @@ object FromJvmopts extends App {
 // -Dkey1=jvmopts
 // ```
 //
-// sbt "config/runMain com.example.config.FromSbtopts"
+// sbt "config/runMain com.example.config.part1.FromSbtopts"
 //
 // bloopはnullになる
-// bloop run config -m com.example.config.FromSbtopts
+// bloop run config -m com.example.config.part1.FromSbtopts
 object FromSbtopts extends App {
   println("-" * 50)
 

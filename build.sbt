@@ -110,5 +110,6 @@ lazy val config =
     .settings(commonSettings: _*)
     .settings(
       libraryDependencies ++= Seq(
+        com.typesafe.config
       )
     )

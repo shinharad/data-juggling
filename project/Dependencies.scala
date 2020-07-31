@@ -8,6 +8,11 @@ object Dependencies {
   }
 
   case object com {
+    case object typesafe {
+      val config =
+        "com.typesafe" % "config" % "1.4.0"
+    }
+
     case object github {
       case object alexarchambault {
         val `scalacheck-shapeless_1.14` =
