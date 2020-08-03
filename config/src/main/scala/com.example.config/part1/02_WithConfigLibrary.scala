@@ -2,8 +2,8 @@ package com.example.config.part1
 
 import com.typesafe.config._
 
-// bloop run config -m com.example.config.part1.OverrideEnvVars -- -J-Dkey1="value 1 from system.properties" -J-Dconfig.override_with_env_vars="true"
-object OverrideEnvVars extends App {
+// bloop run config -m com.example.config.part1.02_OverrideEnvVars -- -J-Dkey1="value 1 from system.properties" -J-Dconfig.override_with_env_vars="true"
+object `02_OverrideEnvVars` extends App {
   println("-" * 50)
 
   val config: Config =
