@@ -8,7 +8,7 @@ object `04_ConfigOverrideWithEnvVars1` extends App {
 
   val config: Config =
     ConfigFactory
-      .load("application5.conf")
+      .load("part1/application6.conf")
 
   println(config.getString("KEY1"))
   println(config.getString("key1"))
@@ -34,7 +34,7 @@ object `04_ConfigOverrideWithEnvVars2` extends App {
 
   val config: Config =
     ConfigFactory
-      .load("application6.conf")
+      .load("part1/application7.conf")
 
   println(config.getString("KEY1"))
   println(config.getString("key1"))

@@ -50,7 +50,7 @@ object FromProperties extends App {
     val stream: java.io.InputStream =
       getClass
         .getClassLoader
-        .getResourceAsStream(".properties")
+        .getResourceAsStream("part1/.properties")
 
     mutableProperties.load(stream)
 
@@ -74,7 +74,7 @@ object FromProperties2 extends App {
     val stream: java.io.InputStream =
       getClass
         .getClassLoader
-        .getResourceAsStream("config.properties") // #
+        .getResourceAsStream("part1/config.properties")
 
     mutableProperties.load(stream)
 

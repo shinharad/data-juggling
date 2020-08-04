@@ -7,7 +7,7 @@ object `02_OverrideEnvVars` extends App {
   println("-" * 50)
 
   val config: Config =
-    ConfigFactory.load()
+    ConfigFactory.load("part1/application.conf")
 
   println(config.getString("KEY1"))
   println(config.getString("key1"))
@@ -16,12 +16,12 @@ object `02_OverrideEnvVars` extends App {
   // println(config.getString("key2"))
 
   val properties: Config =
-    ConfigFactory.load("config.properties")
+    ConfigFactory.load("part1/config.properties")
 
   println(properties.getString("key1"))
 
   val properties2: Config =
-    ConfigFactory.parseResources("application.conf")
+    ConfigFactory.parseResources("part1/application.conf")
 
   println(properties2.getString("key1"))
 
