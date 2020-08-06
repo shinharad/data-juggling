@@ -110,6 +110,9 @@ lazy val config =
     .settings(commonSettings: _*)
     .settings(
       libraryDependencies ++= Seq(
-        com.typesafe.config
+        com.typesafe.config,
+        com.github.pureconfig.pureconfig,
+        com.github.pureconfig.`pureconfig-squants`,
+        eu.timepit.`refined-pureconfig`
       )
     )

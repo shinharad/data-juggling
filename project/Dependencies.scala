@@ -32,6 +32,15 @@ object Dependencies {
         val `monocle-state` = Dependency("monocle-state")
         val `monocle-unsafe` = Dependency("monocle-unsafe")
       }
+
+      case object pureconfig {
+        val pureconfig =
+          "com.github.pureconfig" %% "pureconfig" % "0.12.2"
+
+        val `pureconfig-squants` =
+          "com.github.pureconfig" %% "pureconfig-squants" % "0.12.2"
+
+      }
     }
 
     case object softwaremill {
@@ -87,6 +96,9 @@ object Dependencies {
 
       val `refined-cats` =
         "eu.timepit" %% "refined-cats" % "0.9.10"
+
+      val `refined-pureconfig` =
+        "eu.timepit" %% "refined-pureconfig" % "0.9.12"
     }
 
   }
