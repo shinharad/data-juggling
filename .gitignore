@@ -2,7 +2,6 @@
 .dotty-ide*
 .idea/
 .metals/
-*.worksheet.sc
 metals.sbt
 target/
 .DS_Store
