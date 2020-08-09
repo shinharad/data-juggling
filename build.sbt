@@ -24,7 +24,8 @@ lazy val root =
       cats,
       refined,
       config,
-      squants
+      squants,
+      function
     )
 
 lazy val commonSettings = Seq(
@@ -127,5 +128,15 @@ lazy val squants =
     .settings(
       libraryDependencies ++= Seq(
         org.typelevel.squants
+      )
+    )
+
+lazy val function =
+  project
+    .in(file("function"))
+    .settings(name := "function")
+    .settings(commonSettings: _*)
+    .settings(
+      libraryDependencies ++= Seq(
       )
     )

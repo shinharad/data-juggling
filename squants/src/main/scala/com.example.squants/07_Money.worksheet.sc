@@ -2,6 +2,7 @@ import squants._
 import squants.energy.PowerConversions._
 import squants.market.MoneyConversions._
 import squants.space.VolumeConversions._
+import squants.time.TimeConversions._
 
 market.Money(1, market.USD)
 1.USD
