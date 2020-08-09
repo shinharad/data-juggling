@@ -84,6 +84,9 @@ object Dependencies {
 
       val kittens =
         "org.typelevel" %% "kittens" % "2.0.0"
+
+      val squants =
+        "org.typelevel" %% "squants" % "1.6.0"
     }
 
   }

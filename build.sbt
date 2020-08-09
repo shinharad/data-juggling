@@ -15,14 +15,16 @@ ThisBuild / scalacOptions ++= Seq(
 )
 
 lazy val root =
-  project.in(file("."))
+  project
+    .in(file("."))
     .aggregate(
       chimney,
       monocle,
       isomorphism,
       cats,
       refined,
-      config
+      config,
+      squants
     )
 
 lazy val commonSettings = Seq(
@@ -114,5 +116,16 @@ lazy val config =
         com.github.pureconfig.pureconfig,
         com.github.pureconfig.`pureconfig-squants`,
         eu.timepit.`refined-pureconfig`
+      )
+    )
+
+lazy val squants =
+  project
+    .in(file("squants"))
+    .settings(name := "squants")
+    .settings(commonSettings: _*)
+    .settings(
+      libraryDependencies ++= Seq(
+        org.typelevel.squants
       )
     )
