@@ -7,6 +7,9 @@ object Library {
 
     def compose[A, B, C](bc: B => C, ab: A => B): A => C =
       a => bc(ab(a))
+    
+      def flip[A, B, C](abc: A => B => C): B => A => C =
+        b => a => abc(a)(b)
   }
 
   final implicit class SyntaxForAndThen[A, B](private val ab: A => B) {
@@ -25,5 +28,10 @@ object Library {
   final implicit class SyntaxForPipe[A](private val a: A) {
     @inline final def pipe[B](ab: A => B): B = ab(a)
     @inline final def -->[B](ab: A => B): B = ab(a)
+  }
+
+  final implicit class SyntaxForFlip[A, B, C](private val abc: A => B => C) {
+    @inline final def flipped: B => A => C =
+      PointFree.flip(abc)
   }
 }
