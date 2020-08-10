@@ -1,12 +1,10 @@
-package com.example.function
+package com.example.functions
 
 import Library._
 
 object `08_FunctorForFunctions` extends App {
   println("-" * 100)
-
-  final case class Person(name: String, startedOnDayOfYear: Int)
-
+  
   val isEven: Int => Boolean =
     _ % 2 == 0
 

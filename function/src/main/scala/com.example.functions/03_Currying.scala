@@ -1,4 +1,4 @@
-package com.example.function
+package com.example.functions
 
 import Library._
 

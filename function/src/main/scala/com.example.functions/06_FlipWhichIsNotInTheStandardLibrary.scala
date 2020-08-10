@@ -1,11 +1,9 @@
-package com.example.function
+package com.example.functions
 
 import Library._
 
 object `06_FlipWhichIsNotInTheStandardLibrary` extends App {
   println("-" * 100)
-
-  final case class Person(name: String, startedOnDayOfYear: Int)
 
   println(Person.curried("Alice")(1))
   println(Person.curried("Bob")(2))
