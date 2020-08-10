@@ -79,6 +79,7 @@ object Library {
       def map[B, C](fb: A => B)(f: B => C): A => C =
         fb andThen f
 
+      // unnecessary
       override def flatMap[B, C](fb: A => B)(bfc: B => (A => C)): A => C =
         a => bfc(fb(a))(a)
 
@@ -92,9 +93,6 @@ object Library {
         fb compose f
     }
 
-  // private[this] type From[-A] = {
-  //   type To[+B] = A => B
-  // }
   private[this] type From[A] = {
     type To[+B] = A => B
   }

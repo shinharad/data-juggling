@@ -5,6 +5,8 @@ import Library._
 object `09_MonadForFunctions` extends App {
   println("-" * 100)
 
+  final case class Person(name: String, startedOnDayOfYear: Int)
+  
   def f(int: Int): String =
     int.toString
 

@@ -5,6 +5,8 @@ import Library._
 object `05_WhenToUsePipe` extends App {
   println("-" * 100)
 
+  final case class Person(name: String, startedOnDayOfYear: Int)
+
   val isEven: Int => Boolean =
     _ % 2 == 0
 
