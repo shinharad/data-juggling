@@ -7,11 +7,11 @@ ThisBuild / version := "0.0.1-SNAPSHOT"
 ThisBuild / scalacOptions ++= Seq(
   "-deprecation",
   "-feature",
-  // "-language:_",
-  // "-unchecked",
+  "-language:_",
+  "-unchecked",
   // "-Wunused:_",
   // "-Xfatal-warnings",
-  "-Ymacro-annotations"
+  // "-Ymacro-annotations"
 )
 
 lazy val root =
@@ -136,3 +136,9 @@ lazy val functions =
     .in(file("functions"))
     .settings(name := "functions")
     .settings(commonSettings: _*)
+    .settings(
+      Compile / console / scalacOptions --= Seq(
+        "-Wunused:_",
+        "-Xfatal-warnings"
+      )
+    )

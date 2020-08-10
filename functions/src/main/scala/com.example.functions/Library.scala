@@ -18,6 +18,27 @@ object Library {
       b => a => abc(a)(b)
   }
 
+  trait Functor[F[_]] {
+    def map[B, C](fb: F[B])(f: B => C): F[C]
+  }
+
+  trait Applicative[F[_]] extends Functor[F] {
+    def pure[B](b: B): F[B]
+  }
+
+  trait Monad[F[_]] extends Applicative[F] {
+    def flatMap[B, C](fb: F[B])(bfc: B => F[C]): F[C] =
+      flatten(map(fb)(bfc))
+
+    def flatten[B](ffb: F[F[B]]): F[B]
+  }
+
+  trait ContravariantFunctor[F[_]] {
+    def contramap[B, C](fb: F[B])(f: C => B): F[C]
+  }
+
+  type Contra[F[_]] = ContravariantFunctor[F]
+
   final implicit class SyntaxForAndThen[A, B](private val ab: A => B) {
     @inline final def -->[C](bc: B => C): A => C =
       PointFree.andThen(ab, bc)
@@ -44,27 +65,6 @@ object Library {
       PointFree.flip(abc)
   }
 
-  trait Functor[F[_]] {
-    def map[B, C](fb: F[B])(f: B => C): F[C]
-  }
-
-  trait Applicative[F[_]] extends Functor[F] {
-    def pure[B](b: B): F[B]
-  }
-
-  trait Monad[F[_]] extends Applicative[F] {
-    def flatMap[B, C](fb: F[B])(bfc: B => F[C]): F[C] =
-      flatten(map(fb)(bfc))
-
-    def flatten[B](ffb: F[F[B]]): F[B]
-  }
-
-  trait ContravariantFunctor[F[_]] {
-    def contramap[B, C](fb: F[B])(f: C => B): F[C]
-  }
-
-  type Contra[F[_]] = ContravariantFunctor[F]
-
   // final implicit def FunctorForFunctionsFrom[A]: Functor[A => *] =
   //   new Functor[From[A]#To] {
   //     def map[B, C](fb: A => B)(f: B => C): A => C =
@@ -87,22 +87,30 @@ object Library {
         a => ffb(a)(a)
     }
 
+  private[this] type From[A] = {
+    type To[+B] = A => B
+  }
+
+  // contravariant type A occurs in invariant position in type [-A]AnyRef{type To[+B] = A => B} of type From
+  // private[this] type From[-A] = {
+  //   type To[+B] = A => B
+  // }
+
+  private[this] type To[A] = {
+    type From[-B] = B => A
+  }
+
+  // covariant type A occurs in invariant position in type [+A]AnyRef{type From[-B] = B => A} of type To
+  // private[this] type To[+A] = {
+  //   type From[-B] = B => A
+  // }
+
   final implicit def ContraForFunctionsFrom[A]: Contra[* => A] =
     new Contra[To[A]#From] {
       def contramap[B, C](fb: B => A)(f: C => B): C => A =
         fb compose f
     }
 
-  private[this] type From[A] = {
-    type To[+B] = A => B
-  }
-
-  // private[this] type To[+A] = {
-  //   type From[-B] = B => A
-  // }
-  private[this] type To[A] = {
-    type From[-B] = B => A
-  }
 
   final implicit class SyntaxForMap[F[_]: Functor, B](private val fb: F[B]) {
     @inline final def map[C](f: B => C): F[C] =
